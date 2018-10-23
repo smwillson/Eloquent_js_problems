@@ -35,7 +35,7 @@ let stringToPrint = "";
 for (let row = 0; row < board.length; row++) {
   for (let column = 0; column < board[0].length; column++) {
 
-    stringToPrint = stringToPrint + board[row][column];
+    stringToPrint = stringToPrint.concat(board[row][column]);
 
   }
   console.log(stringToPrint);
