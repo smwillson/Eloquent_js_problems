@@ -17,7 +17,7 @@ Passing this string to console.log should show something like this:
 
 const INPUT = 8;
 
-const STRING_TO_PRINT = `#`;
+const CHAR_TO_PRINT = `#`;
 
 let board = [];
 
@@ -26,7 +26,7 @@ for (let row = 0; row < INPUT; row++) {
   for (let column = 0; column < INPUT; column++) {
 
     boardRow[column] = (row % 2 === 0 && column % 2 === 0 ? " "
-                                                                : (row % 2 !== 0 && column % 2 !== 0 ? " " : STRING_TO_PRINT));
+                                                                : (row % 2 !== 0 && column % 2 !== 0 ? " " : CHAR_TO_PRINT));
 
   }
   board.push(boardRow);
