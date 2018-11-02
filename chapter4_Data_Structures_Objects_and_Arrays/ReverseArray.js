@@ -31,13 +31,19 @@ function reverseArray(arrayToReverse) {
 
 
 //Function that will modify the original array
+
+/*
+Pure functions live in a timeless realm. The whole notion of time, of actions happening in some order, doesn't apply to pure functions.
+They don't care about time. When you look at pure functions, read the code, debug, test or use just them — you don't have to think about time,
+about what happened before and will happen after. This is liberating, and all the "easier" things about pure functions are consequences of this fact.
+*/
 function reverseArrayInPlace(arrayToReverse) {
 
   if (arrayToReverse.length > 0) {
     let splicedArray = arrayToReverse.splice(0, arrayToReverse.length - 1);
 
-    for (let index = splicedArray.length - 1; index >= 0; index--) {
-      arrayToReverse.push(splicedArray[index]);
+  while(splicedArray.length > 0){
+      arrayToReverse.push(splicedArray.pop());
     }
 
   }
