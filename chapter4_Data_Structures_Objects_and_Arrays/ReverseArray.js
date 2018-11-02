@@ -37,7 +37,7 @@ Pure functions live in a timeless realm. The whole notion of time, of actions ha
 They don't care about time. When you look at pure functions, read the code, debug, test or use just them — you don't have to think about time,
 about what happened before and will happen after. This is liberating, and all the "easier" things about pure functions are consequences of this fact.
 
-More about pure  functions:https://en.hexlet.io/courses/intro_to_programming/lessons/pure/theory_unit
+More about pure functions:https://en.hexlet.io/courses/intro_to_programming/lessons/pure/theory_unit
 */
 function reverseArrayInPlace(arrayToReverse) {
 
