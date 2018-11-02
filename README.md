@@ -5,6 +5,7 @@ Solutions for the problems in Eloquent JavaScript 3rd edition
 To run the js file and view the output, you can either:
 
 1. create a html file and add the following code to it
+```html
 <html>
 <head>
 <title></title>
@@ -16,7 +17,7 @@ To run the js file and view the output, you can either:
 </script>
 </body>
 </html>
-
+```
 The results will be displayed in the browser console(press Ctrl + Shift + I or F12 to open console).
 
 2. run it via node(preferred). To do that make sure that you have node installed on your machine. To see if Node is installed, open the Windows Command Prompt, Powershell or a similar command line tool, and type node -v . This should print a version number, so you'll see something like this v0.10.35 .
