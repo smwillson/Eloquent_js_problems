@@ -26,6 +26,6 @@ To do that make sure that you have node installed on your machine. To see if Nod
 If its not installed, download the latest stable version from https://nodejs.org/en/.
 Open cmd or terminal and run youfile.js with node.
 
-Run the javascript file by typing
+Run the javascript file by typing:
 
-node youfile.js
+node yourfile.js
