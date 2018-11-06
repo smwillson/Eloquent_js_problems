@@ -12,9 +12,7 @@ To run the js file and view the output, you can either:
 </head>
 <body>
 
-<script>
 <script src="wherever_your_js_file_is_located_relative_to_the_html_file"></script>
-</script>
 </body>
 </html>
 ```
