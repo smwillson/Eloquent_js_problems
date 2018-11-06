@@ -9,7 +9,7 @@ indeed return 55.
 
 */
 // We start by assigning a default value to the countBy variable in case user doesnt provide one, which is depenedent on the start and end values
-function range(start, end, countBy = (start >= 0 && end > start) ? 1 : (start <= 0 && end < start) ? -1 : (start <= 0 && end > start) ? 1 : -1) {
+function range(start, end, countBy = (start < end ) ? 1 : -1) {
 
   let numberArray = [];
 
@@ -41,7 +41,7 @@ function sum(numberArray) {
 
   } else {
     console.log(`Empty array`);
-    return `Undefined value cant be logged on console!`;
+    return `Undefined value can't be logged on console!`;
   }
 
   return sum;
