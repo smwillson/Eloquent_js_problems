@@ -16,12 +16,12 @@ of objects to compare them.
 */
 
 function deepEqual(object1, object2) {
-
+  //check if the given objects have the same datatype
   if (typeof(object1) === typeof(object2)) {
-      //check if the given object is a primitive datatype and how to handle null values
-    if ((typeof(object1) !== 'object') && (typeof(object2) !== 'object')
-     || object1 === null || object2 === null) {
-        return object1 === object2;
+    //check if the given object is a primitive datatype and how to handle null values
+    if ((typeof(object1) !== 'object') && (typeof(object2) !== 'object') ||
+      object1 === null || object2 === null) {
+      return object1 === object2;
     } else {
       //if they are both objects
       if (object1 !== null && object2 !== null) {
@@ -32,12 +32,19 @@ function deepEqual(object1, object2) {
         if (object1Keys.length === object2Keys.length) {
           let isEqual;
           for (let index = 0; index < object1Keys.length; index++) {
+            //make sure both key:value pairs match
+            if (object1Keys[index] === object2Keys[index]) {
+              //check if the current value is another object
+              if (typeof(object1[object1Keys[index]]) === 'object' &&
+                typeof(object2[object2Keys[index]]) === 'object') {
+                return deepEqual(object1[object1Keys[index]], object2[object2Keys[index]]);
+              } else {
 
-            //check if the current value is another object
-            if (typeof(object1[object1Keys[index]]) == 'object' && typeof(object1[object2Keys[index]]) == 'object') {
-              return deepEqual(object1[object1Keys[index]], object2[object1Keys[index]]);
-            } else {
-              isEqual = object1[object1Keys[index]] === object2[object1Keys[index]];
+                isEqual = (object1[object1Keys[index]] === object2[object2Keys[index]]);
+              }
+            }else{
+
+              return false;//return false if keys dont match
             }
           }
           return isEqual;
@@ -64,7 +71,7 @@ let obj1 = {
   c: {
     1: 'one',
     2: {
-      4: 'Three'
+      3: 'Three'
     }
   }
 };
@@ -75,7 +82,7 @@ let obj2 = {
   c: {
     1: 'one',
     2: {
-      4: 'Three'
+      3: 'Three'
     }
   }
 };
@@ -128,3 +135,23 @@ console.log('null == null');
 console.log(deepEqual(null, null));
 console.log('10 == 5');
 console.log(deepEqual(10, 5));
+console.log(`10 == '10'`);
+console.log(deepEqual(10, '10'));
+
+/*
+obj1 == obj2 :
+true
+obj3 == obj4 :
+false
+true
+null == obj3
+false
+5 == obj3
+false
+null == null
+true
+10 == 5
+false
+10 == '10'
+false
+*/
