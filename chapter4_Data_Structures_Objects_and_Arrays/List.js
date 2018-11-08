@@ -15,7 +15,7 @@ function arrayToList(arrayToConvert) {
   if (arrayToConvert.length > 0) {
     linkedList = {};
     linkedList.value = arrayToConvert[0];
-    arrayToConvert.shift();
+    arrayToConvert.shift(); //remove the zeroth element of the array
     linkedList.rest = arrayToList(arrayToConvert);
   }
 
@@ -33,6 +33,7 @@ function listToArray(listToConvert) {
     let keys = Object.keys(listToConvert);
     keys.forEach(function(key) {
       if (typeof(listToConvert[key]) !== 'object') {
+        //if the current value is not an object push it in to the array
         arrayOfElements.push(listToConvert[key]);
 
       } else if(listToConvert[key] !== null) {
@@ -67,7 +68,7 @@ console.log(prependList);
  *element) or undefined when there is no such element */
 
 function nth(list, num) {
-  elements = []; //clear out any previous values of the global variable
+
   let linkedListArray = listToArray(list);
   return (!(num < 0 || num > linkedListArray.length)) ? linkedListArray[num] : 'undefined';
 
