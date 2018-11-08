@@ -9,54 +9,38 @@ element) or undefined when there is no such element.
 If you haven’t already, also write a recursive version
 */
 
-//This function creates an array of objects and sets the value property to the corresponding item of the given array
-function arrayToList(arrayToCovert) {
-  let listArray = [];
-  if (arrayToCovert.length > 0) {
-
-    arrayToCovert.forEach(function(element) {
-      let listItem = {};
-      listItem.value = element;
-      listItem.rest = null;
-      listArray.push(listItem);
-    });
+//This function creates a linked list
+function arrayToList(arrayToConvert) {
+  let linkedList = null;
+  if (arrayToConvert.length > 0) {
+    linkedList = {};
+    linkedList.value = arrayToConvert[0];
+    arrayToConvert.shift();
+    linkedList.rest = arrayToList(arrayToConvert);
   }
-  createLinkedList(listArray);
-  return (listArray.shift());
-}
-//This function takes an array of object and connects them to create a linked list
-function createLinkedList(listArray) {
-  let index = 0;
-  //iterate through the listArray and assign the next array item as the rest property of the current item
-  listArray.forEach(function(listItem) {
-    listItem.rest = (index < listArray.length - 1) ? listArray[++index] : null;
-  });
-  return listArray;
+
+  return (linkedList);
 }
 let newList = arrayToList([1, 2, 3, 4]);
 console.log("List from Array:");
 console.log(newList);
 
-//This function creates a array of values from the given list
-let elements = []; //global variable
-function listToArray(list) {
-  //extract the keys of the given object to an array
-  var keys = [];
-  for (var key in list) {
-    if (list.hasOwnProperty(key)) keys.push(key);
+//This function creates a array of values from a given list
+function listToArray(listToConvert) {
+  let arrayOfElements = [];
+  if (listToConvert !== null && typeof(listToConvert) === 'object') {
+
+    let keys = Object.keys(listToConvert);
+    keys.forEach(function(key) {
+      if (typeof(listToConvert[key]) !== 'object') {
+        arrayOfElements.push(listToConvert[key]);
+
+      } else if(listToConvert[key] !== null) {
+        arrayOfElements = arrayOfElements.concat(listToArray(listToConvert[key]));//recursive call
+      }
+    });
+    return arrayOfElements;
   }
-  keys.forEach(function(key) {
-//add any non-object value to the elements array
-    if (!(typeof(list[key]) == 'object')) {
-      elements.push(list[key]);
-
-    } else {
-      return listToArray(list[key]); //recursive call
-    }
-
-  });
-
-  return elements;
 }
 
 let newArray = listToArray(arrayToList([1, 2, 3, 4]));
@@ -69,10 +53,10 @@ takes an element and a list and creates a new list that adds the element to the
 front of the given list*/
 function prepend(item, list) {
 
-  let listItem = {};
-  listItem.value = item;
-  listItem.rest = list;
-  return listItem;
+  let linkedList = {};
+  linkedList.value = item;
+  linkedList.rest = list;
+  return linkedList;
 }
 let prependList = prepend(10, (arrayToList([1, 2, 3, 4])));
 console.log("New list is:");
@@ -84,12 +68,31 @@ console.log(prependList);
 
 function nth(list, num) {
   elements = []; //clear out any previous values of the global variable
-  let listItemArray = listToArray(list);
-  return (!(num < 0 || num > listItemArray.length)) ? listItemArray[num] : 'undefined';
+  let linkedListArray = listToArray(list);
+  return (!(num < 0 || num > linkedListArray.length)) ? linkedListArray[num] : 'undefined';
 
 }
 console.log("List item is:")
 console.log(nth(arrayToList([100, 200, 300]), 1));
+
+let obj1 = {
+  a: 'somestring',
+  b: 42,
+  c: {
+    1: 'one',
+    2: {
+      4: 'Three',
+      5:{
+        6:'six',
+        7: null
+      }
+    }
+  }
+};
+
+let newArray1 = listToArray(obj1);
+console.log("Array from List:");
+console.log(newArray1);
 /*
 OUTPUT:
 
