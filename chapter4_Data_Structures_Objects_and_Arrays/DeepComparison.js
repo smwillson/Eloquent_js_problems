@@ -61,10 +61,6 @@ function deepEqual(object1, object2) {
 }
 
 
-
-
-
-
 let obj1 = {
   a: 'somestring',
   b: 42,
