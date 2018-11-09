@@ -31,7 +31,7 @@ The results will be displayed in the browser console(press Ctrl + Shift + I or F
 To do that make sure that you have node installed on your machine. To see if Node is installed, open the Windows Command Prompt, Powershell or a similar command line tool, and type node -v . This should print a version number, so you'll see something like this v0.10.35 .
 
 If its not installed, download the latest stable version from https://nodejs.org/en/.
-Open cmd or terminal and run youfile.js with node.
+Open cmd or terminal and run yourfile.js with node.
 
 Run the javascript file by typing:
 
