@@ -4,16 +4,16 @@ Solutions for the problems in Eloquent JavaScript 3rd edition
 ## How to download/clone the repo?
 In order to clone the project onto your computer via HTTPS URLs (recommended) do the following:
 
-Open a new command prompt window
+Open a new command prompt window, navigate to the location where you want to add the repo.
 
-Type git clone https://github.com/smwillson/Eloquent_js_problems.git at the prompt.
+Type git clone https://github.com/smwillson/Eloquent_js_problems.git at the prompt and hit enter.
 
 More information : https://help.github.com/articles/which-remote-url-should-i-use/
 
 
 ## How to run a js file and view the output?
 
-### 1. Create a html file and add the following code to it
+### 1. Create an html file and add the following code to it
 ```html
 <html>
 <head>
