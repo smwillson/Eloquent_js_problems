@@ -13,10 +13,9 @@ If you haven’t already, also write a recursive version
 function arrayToList(arrayToConvert) {
   let linkedList = null;
   if (arrayToConvert.length > 0) {
-    linkedList = {};
-    linkedList.value = arrayToConvert[0];
+    linkedList = {value : arrayToConvert[0]};
     arrayToConvert.shift(); //remove the zeroth element of the array
-    linkedList.rest = arrayToList(arrayToConvert);
+    linkedList.rest = arrayToList(arrayToConvert); //recursive call
   }
 
   return (linkedList);
