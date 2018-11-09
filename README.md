@@ -10,7 +10,8 @@ Type git clone https://github.com/smwillson/Eloquent_js_problems.git at the prom
 
 More information : https://help.github.com/articles/which-remote-url-should-i-use/
 
-To run a js file and view the output, you can either:
+
+### How to run a js file and view the output?
 
 ## 1. Create a html file and add the following code to it
 ```html
