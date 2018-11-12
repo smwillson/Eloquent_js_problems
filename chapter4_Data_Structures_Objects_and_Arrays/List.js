@@ -13,7 +13,9 @@ If you haven’t already, also write a recursive version
 function arrayToList(arrayToConvert) {
   let linkedList = null;
   if (arrayToConvert.length > 0) {
-    linkedList = {value : arrayToConvert[0]};
+    linkedList = {
+      value: arrayToConvert[0]
+    };
     arrayToConvert.shift(); //remove the zeroth element of the array
     linkedList.rest = arrayToList(arrayToConvert); //recursive call
   }
@@ -35,8 +37,8 @@ function listToArray(listToConvert) {
         //if the current value is not an object push it in to the array
         arrayOfElements.push(listToConvert[key]);
 
-      } else if(listToConvert[key] !== null) {
-        arrayOfElements = arrayOfElements.concat(listToArray(listToConvert[key]));//recursive call
+      } else if (listToConvert[key] !== null) {
+        arrayOfElements = arrayOfElements.concat(listToArray(listToConvert[key])); //recursive call
       }
     });
     return arrayOfElements;
@@ -53,9 +55,10 @@ takes an element and a list and creates a new list that adds the element to the
 front of the given list*/
 function prepend(item, list) {
 
-  let linkedList = {};
-  linkedList.value = item;
-  linkedList.rest = list;
+  let linkedList = {
+    value: item,
+    rest: list
+  };
   return linkedList;
 }
 let prependList = prepend(10, (arrayToList([1, 2, 3, 4])));
@@ -82,8 +85,8 @@ let obj1 = {
     1: 'one',
     2: {
       4: 'Three',
-      5:{
-        6:'six',
+      5: {
+        6: 'six',
         7: null
       }
     }
